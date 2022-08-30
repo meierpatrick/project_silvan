@@ -31,6 +31,7 @@ const WalletCardEthers = () => {
     } else if (!window.ethereum) {
       console.log("Need to install MetaMask");
       setErrorMessage("Please install MetaMask browser extension to interact");
+      connConnected(false);
     }
   };
 
@@ -56,19 +57,23 @@ const WalletCardEthers = () => {
     connectWalletOnPageLoad();
   }, []);
 
-  return (
-    <div className="walletCard">
-      <h4> Connection to MetaMask using ethers.js </h4>
-      <Button onClick={connectWalletHandler}>{connButtonText}</Button>
-      <div className="accountDisplay">
-        <h3>Address: {defaultAccount}</h3>
+  if (localStorage?.getItem("isWalletConnected") === "true") {
+    return (
+      <div className="walletCard">
+        <h4> Connection to MetaMask using ethers.js </h4>
+        <Button onClick={connectWalletHandler} size="sm">
+          {connButtonText}
+        </Button>
+        <div className="accountDisplay">
+          <h3>Address: {defaultAccount}</h3>
+        </div>
+        <div className="balanceDisplay">
+          <h3>Balance: {userBalance}</h3>
+        </div>
+        {errorMessage}
       </div>
-      <div className="balanceDisplay">
-        <h3>Balance: {userBalance}</h3>
-      </div>
-      {errorMessage}
-    </div>
-  );
+    );
+  }
 };
 
 export default WalletCardEthers;
