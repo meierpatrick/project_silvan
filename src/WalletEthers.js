@@ -73,6 +73,15 @@ const WalletCardEthers = () => {
         {errorMessage}
       </div>
     );
+  } else {
+    return (
+      <div className="walletCard">
+        <h4> Connection to MetaMask using ethers.js </h4>
+        <Button onClick={connectWalletHandler} size="sm">
+          {connButtonText}
+        </Button>
+      </div>
+    );
   }
 };
 
