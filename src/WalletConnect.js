@@ -35,6 +35,8 @@ import {
   Avatar,
   AvatarBadge,
   AvatarGroup,
+  Grid,
+  GridItem,
 } from "@chakra-ui/react";
 import MetaMask from "./images/metamask.png";
 import WalletConnect from "./images/walletconnect.png";
@@ -66,7 +68,7 @@ const VanillaConnectionComponent = () => {
   useEffect(() => {
     const connectWalletOnPageLoad = async () => {
       localStorage.setItem("isTheWalletConnected", true);
-      if (localStorage?.getItem("isTheWalletConnected") === "true") {
+      if (window.ethereum) {
         try {
           await connectMetamask();
           await connectCoinbase();
@@ -216,38 +218,56 @@ const VanillaConnectionComponent = () => {
           <DrawerOverlay mt="73px" />
           <DrawerContent mt="73px">
             <DrawerBody>
-              <Flex align="center" mt="20px">
-                <Text
-                  w="150px"
-                  whiteSpace="nowrap"
-                  overflow="hidden"
-                  textOverflow="ellipsis"
-                  color="tomato"
-                  fontSize="2xl"
-                >
-                  {web3Account}
-                </Text>
-                <CopyIcon
-                  cursor="pointer"
-                  boxSize={5}
-                  onClick={onCopy}
-                  ml={2}
-                  defaultAccount={web3Account}
-                >
-                  {hasCopied ? "Copied" : "Copy"}
-                </CopyIcon>
-                <Spacer />
-                <Button
-                  rightIcon={<ArrowForwardIcon boxSize={5} />}
-                  onClick={onClose}
-                  size="sm"
-                >
-                  Go back
-                </Button>
+              <Flex align="center" gap="1rem" pt="20px">
+                <Avatar size="md">
+                  <AvatarBadge boxSize="1em" bg="tomato" />
+                </Avatar>
+                <Flex align="center" flex=" 1 1 0">
+                  <Flex flex-direction="column">
+                    <Box
+                      iconRight={
+                        <Text color="green.500" size="sm">
+                          <WarningIcon size="sz" /> Wallet verified
+                        </Text>
+                      }
+                    >
+                      <Text
+                        w="150px"
+                        whiteSpace="nowrap"
+                        overflow="hidden"
+                        textOverflow="ellipsis"
+                        color="tomato"
+                        fontSize="2xl"
+                      >
+                        {web3Account}
+                      </Text>
+                      <Text color="green.500" size="sm">
+                        <WarningIcon size="sz" /> Wallet verified
+                      </Text>
+                    </Box>
+                    <CopyIcon
+                      cursor="pointer"
+                      boxSize={5}
+                      onClick={onCopy}
+                      ml={2}
+                      mt="8px"
+                      defaultAccount={web3Account}
+                    >
+                      {hasCopied ? "Copied" : "Copy"}
+                    </CopyIcon>
+                  </Flex>
+
+                  <Spacer />
+                  <Button
+                    rightIcon={<ArrowForwardIcon boxSize={5} />}
+                    onClick={onClose}
+                    size="sm"
+                  >
+                    Go back
+                  </Button>
+                </Flex>
               </Flex>
-              <Text color="green.500" size="sm">
-                <WarningIcon size="sz" /> Wallet verified
-              </Text>
+
               <Box
                 borderWidth="1px"
                 borderRadius="lg"
@@ -343,6 +363,7 @@ const VanillaConnectionComponent = () => {
           size="sm"
           ml="15px"
           type="submit"
+          bg="#d5e4f9"
           leftIcon={
             <Avatar size="xs">
               <AvatarBadge boxSize="1.25em" bg="tomato" />

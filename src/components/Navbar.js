@@ -44,20 +44,13 @@ const Navbar = () => {
   return (
     <>
       <Flex
-        p="20px"
+        p="25px 40px"
         display="block"
-        borderBottomWidth="1px"
-        pos="fixed"
         w="100%"
-        background="var(--chakra-colors-chakra-body-bg)"
         zIndex="99"
+        className="heroBackground"
       >
-        <Flex
-          align="center"
-          justifyContent="space-between"
-          maxWidth="67rem"
-          margin="0 auto"
-        >
+        <Flex align="center" justifyContent="space-between" margin="0 auto">
           <Heading size="md">Logo</Heading>
           <Flex align="center">
             <Flex display={["none", "none", "flex", "flex"]}>
@@ -94,15 +87,40 @@ const Navbar = () => {
               display={["flex", "flex", "none", "none"]}
               onClick={() => changeDisplay("flex")}
             ></IconButton>
-            <Button
+
+            <Menu>
+              {({ isOpen }) => (
+                <>
+                  <MenuButton
+                    isActive={isOpen}
+                    as={Button}
+                    rightIcon={<ChevronDownIcon />}
+                    bg="#0b72e7"
+                    fontSize={`"var(--chakra-fontSizes-3xl"`}
+                    color="#fff"
+                    size="sm"
+                  >
+                    Change Network
+                  </MenuButton>
+                  <MenuList>
+                    <MenuItem>Mainnet: Binance Smart Chain</MenuItem>
+                    <MenuItem onClick={() => alert("Kagebunshin")}>
+                      Testnet: Binance Smart Chain
+                    </MenuItem>
+                  </MenuList>
+                </>
+              )}
+            </Menu>
+            <VanillaConnectionComponent />
+            <Link
               onClick={onOpen}
               colorScheme="gray"
               ml="15px"
-              mr="15px"
+              bg="transparent"
               size="sm"
             >
-              <SettingsIcon />
-            </Button>
+              <SettingsIcon w={5} h={5} color="#0b72e7" />
+            </Link>
             <Modal isOpen={isOpen} onClose={onClose}>
               <ModalOverlay />
               <ModalContent>
@@ -120,27 +138,6 @@ const Navbar = () => {
                 </ModalFooter>
               </ModalContent>
             </Modal>
-            <Menu>
-              {({ isOpen }) => (
-                <>
-                  <MenuButton
-                    isActive={isOpen}
-                    as={Button}
-                    rightIcon={<ChevronDownIcon />}
-                    size="sm"
-                  >
-                    Change Network
-                  </MenuButton>
-                  <MenuList>
-                    <MenuItem>Mainnet: Binance Smart Chain</MenuItem>
-                    <MenuItem onClick={() => alert("Kagebunshin")}>
-                      Testnet: Binance Smart Chain
-                    </MenuItem>
-                  </MenuList>
-                </>
-              )}
-            </Menu>
-            <VanillaConnectionComponent />
           </Flex>
         </Flex>
 
