@@ -41,12 +41,14 @@ import {
 import MetaMask from "./images/metamask.png";
 import WalletConnect from "./images/walletconnect.png";
 import Coinbase from "./images/coinbase.png";
+import { IoWallet } from "react-icons/io5";
 import {
   ExternalLinkIcon,
   WarningIcon,
   ArrowForwardIcon,
   CopyIcon,
 } from "@chakra-ui/icons";
+import BinanceAPI from "./components/BinanceAPI";
 
 const VanillaConnectionComponent = () => {
   const [web3Library, setWeb3Library] = React.useState();
@@ -190,7 +192,7 @@ const VanillaConnectionComponent = () => {
         {sizes.map((size) => (
           <Button
             ref={btnRef}
-            size="sm"
+            size="md"
             ml="15px"
             leftIcon={<Avatar size="xs" name="Oshigaki Kisame"></Avatar>}
             rightIcon={<WarningIcon size="xs" color="green.500"></WarningIcon>}
@@ -268,18 +270,10 @@ const VanillaConnectionComponent = () => {
                 </Flex>
               </Flex>
 
-              <Box
-                borderWidth="1px"
-                borderRadius="lg"
-                overflow="hidden"
-                padding="20px"
-                mt="20px"
-              >
-                <Heading as="h3" fontSize="18px">
-                  Balances:
-                </Heading>
-                {userBalance}
-              </Box>
+              <Heading as="h3" fontSize="18px">
+                Balances:
+              </Heading>
+              {userBalance}
               <Divider pt="20px" />
               <Box
                 borderWidth="1px"
@@ -344,6 +338,15 @@ const VanillaConnectionComponent = () => {
                   Verify
                 </Button>
               </Box>
+              <Box
+                borderWidth="1px"
+                borderRadius="lg"
+                overflow="hidden"
+                padding="20px"
+                mt="20px"
+              >
+                <BinanceAPI />
+              </Box>
             </DrawerBody>
             <DrawerFooter>
               <Button w="100%" variant="outline" mr={3} onClick={onClose}>
@@ -359,16 +362,13 @@ const VanillaConnectionComponent = () => {
     return (
       <div className="flex flex-col space-y-7 items-start pt-10 w-1/2 border-2 border-yellow-300">
         <Button
+          variant="outline"
+          colorScheme="blue"
           onClick={onOpenReportModal}
-          size="sm"
+          size="md"
           ml="15px"
           type="submit"
-          bg="#d5e4f9"
-          leftIcon={
-            <Avatar size="xs">
-              <AvatarBadge boxSize="1.25em" bg="tomato" />
-            </Avatar>
-          }
+          leftIcon={<IoWallet />}
         >
           Connect Wallet
         </Button>

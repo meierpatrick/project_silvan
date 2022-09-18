@@ -1,23 +1,20 @@
 /** @format */
-import Navbar from "./components/Navbar";
+import React from "react";
+import { Routes, Route, Link } from "react-router-dom";
+
 import Hero from "./sections/Hero";
+
+import Markets from "./pages/Markets";
+import Info from "./sections/Info";
+import CryptocurrenyPrices from "./components/PriceAPI.js";
 import Footer from "./components/Footer";
-import Vesting from "./sections/Vesting";
-import VanillaConnectionComponent from "./WalletConnect";
-import SwitchNetwork from "./components/SwitchNetwork";
-import Contracts from "./sections/Contracts";
-import BinanceAPI from "./components/BinanceAPI";
 
 export default function App() {
   return (
     <>
-      <Navbar />
       <Hero />
-      <BinanceAPI />
-      <Contracts />
-      <SwitchNetwork />
-      <VanillaConnectionComponent />
-      <Vesting />
+      <Info />
+      <CryptocurrenyPrices />
       <Footer />
     </>
   );

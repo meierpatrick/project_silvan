@@ -15,6 +15,7 @@ import PieChart from "../components/PieChart";
 import { WarningIcon } from "@chakra-ui/icons";
 import LiveSchedules from "../components/LiveSchedules";
 import Tokenomics from "../components/Tokenomics";
+import Border from "../images/Border";
 
 const Vesting = () => {
   return (

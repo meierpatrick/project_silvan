@@ -1,142 +1,84 @@
 /** @format */
 
 import React from "react";
-import {
-  Box,
-  Button,
-  Heading,
-  Text,
-  Image,
-  Flex,
-  Highlight,
-  List,
-  ListItem,
-  ListIcon,
-  OrderedList,
-  UnorderedList,
-} from "@chakra-ui/react";
-import BgImg from "../images/bgHero.svg";
-import {
-  CheckIcon,
-  ArrowForwardIcon,
-  ChevronRightIcon,
-} from "@chakra-ui/icons";
+import { Box, Button, Heading, Flex, Highlight, Text } from "@chakra-ui/react";
+import { ArrowForwardIcon, ChevronRightIcon } from "@chakra-ui/icons";
+import Border from "../images/cube_blu.svg";
+import PrivateSale from "../components/PrivateSale";
 
-const Hero = () => {
+const Hero = ({ web3Account }) => {
+  console.log();
   return (
     <Box
       textAlign="center"
       flex-direction="column"
       align="center"
-      maxWidth="67rem"
-      margin="0px auto"
+      position="relative"
+      paddingTop="10rem"
     >
-      <Flex
-        m="0 auto"
-        mt="3rem"
-        borderRadius="lg"
-        overflow="hidden"
-        alignItems="center"
-        p="4.5rem 2.5rem"
-        className="heroBackground"
-      >
-        <Box textAlign="left">
-          <Heading size="lg" pb="2rem" as="h2" lineHeight="1.6">
-            <Highlight
-              query="Payment Gateway"
-              styles={{
-                px: "2",
-                py: "1",
-                color: "#006cff",
-              }}
-            >
-              Supercharge your business with the all‑powerful Payment Gateway
-            </Highlight>
-          </Heading>
-          <List spacing={3}>
-            <ListItem fontSize="16px">
-              <ListIcon
-                as={CheckIcon}
-                color="green.500"
-                mr="20px"
-                fontSize="15px"
-              />
-              100+ Payment Methods
-            </ListItem>
-            <ListItem fontSize="16px">
-              <ListIcon
-                as={CheckIcon}
-                color="green.500"
-                mr="20px"
-                fontSize="15px"
-              />
-              Industry Leading Success Rate
-            </ListItem>
-            <ListItem fontSize="16px">
-              <ListIcon
-                as={CheckIcon}
-                color="green.500"
-                mr="20px"
-                fontSize="15px"
-              />
-              Superior Checkout Experience
-            </ListItem>
-            {/* You can also use custom icons from react-icons */}
-            <ListItem fontSize="16px">
-              <ListIcon
-                as={CheckIcon}
-                color="green.500"
-                mr="20px"
-                fontSize="15px"
-              />
-              Easy to Integrate
-            </ListItem>
-            <ListItem fontSize="16px">
-              <ListIcon
-                as={CheckIcon}
-                color="green.500"
-                mr="20px"
-                fontSize="15px"
-              />
-              Instant Settlements from day 1
-            </ListItem>
-            {/* You can also use custom icons from react-icons */}
-            <ListItem fontSize="16px">
-              <ListIcon
-                as={CheckIcon}
-                color="green.500"
-                mr="20px"
-                fontSize="15px"
-              />
-              In-depth Reporting and Insights
-            </ListItem>
-          </List>
-          <Button
-            size="lg"
-            mt="3rem"
-            rightIcon={<ArrowForwardIcon />}
-            fontSize="17px"
-            background="#0b72e7"
-            color="#fff"
+      <Box margin="0px auto" width="100%">
+        <Box
+          display="flex"
+          flexDirection="column"
+          justifyContent=" center"
+          align-items=" flex-start"
+          className="heroBackground"
+          backgroundSize=" auto 100%"
+          backgroundPosition=" 100% 50%"
+          backgroundRepeat=" no-repeat"
+          backgroundImage={Border}
+          borderRadius=" 8px"
+          minHeight=" 210px"
+          padding=" 55px 32px"
+        >
+          <Flex
+            borderRadius="lg"
+            overflow="hidden"
+            alignItems="center"
+            flex="0 0 50%"
+            gap="3rem"
           >
-            Get Whitelisted
-          </Button>
-          <Button
-            variant="ghost"
-            size="lg"
-            mt="3rem"
-            ml="1rem"
-            rightIcon={<ChevronRightIcon />}
-            color="#0b72e7"
-            fontSize="17px"
-          >
-            Testnet Explorer
-          </Button>
+            <Box textAlign="left" position="relative">
+              <Text>Status: Offline.</Text>
+              <Heading size="xl" pb="2rem" as="h2" lineHeight="1.6">
+                <Highlight
+                  query="Private Sale"
+                  styles={{
+                    px: "2",
+                    py: "1",
+                    color: "#006cff",
+                  }}
+                >
+                  NOT Token Private Sale
+                </Highlight>
+              </Heading>
+
+              <Button
+                size="lg"
+                rightIcon={<ArrowForwardIcon />}
+                fontSize="17px"
+                background="#0b72e7"
+                color="#fff"
+              >
+                Get Whitelisted
+              </Button>
+              <Button
+                variant="ghost"
+                size="lg"
+                ml="1rem"
+                rightIcon={<ChevronRightIcon />}
+                color="#0b72e7"
+                fontSize="17px"
+              >
+                View Details
+              </Button>
+            </Box>
+            <Box>
+              <PrivateSale />
+            </Box>
+          </Flex>
         </Box>
-        <Box>
-          <Image src={BgImg} objectFit="cover" alt="dapp" />
-        </Box>
-      </Flex>
+      </Box>
     </Box>
   );
 };

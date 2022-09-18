@@ -12,6 +12,7 @@ import {
   Grid,
   GridItem,
   List,
+  Link,
   ListItem,
   ListIcon,
   OrderedList,
@@ -23,6 +24,7 @@ import {
   ArrowForwardIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
+import Border from "../images/Border";
 
 const Contracts = () => {
   return (
@@ -30,44 +32,85 @@ const Contracts = () => {
       textAlign="center"
       flex-direction="column"
       align="center"
-      maxWidth="67rem"
-      margin="0px auto"
+      padding="0px 24px"
     >
-      <Grid templateColumns="repeat(3, 1fr)" gap={6} w="100%">
+      <Grid templateColumns="repeat(5, 1fr)" gap={6} w="100%">
         {" "}
         <GridItem
           w="100%"
-          h="10"
           m="0 auto"
-          mt="3rem"
           borderRadius="lg"
           overflow="hidden"
           alignItems="center"
-          p="4.5rem 2.5rem"
+          p="2.5rem 2.5rem"
           className="heroBackground"
-        />
+          textAlign="left"
+          position="relative"
+        >
+          <Heading size="lg" as="h2" lineHeight="1.6">
+            Whitelistin{" "}
+          </Heading>
+        </GridItem>
         <GridItem
           w="100%"
-          h="10"
           m="0 auto"
-          mt="3rem"
           borderRadius="lg"
           overflow="hidden"
           alignItems="center"
-          p="4.5rem 2.5rem"
+          p="2.5rem 2.5rem"
           className="heroBackground"
-        />
+          textAlign="left"
+          position="relative"
+        >
+          <Heading size="lg" as="h2" lineHeight="1.6">
+            Whitelistin{" "}
+          </Heading>
+        </GridItem>
         <GridItem
           w="100%"
-          h="10"
           m="0 auto"
-          mt="3rem"
           borderRadius="lg"
           overflow="hidden"
           alignItems="center"
-          p="4.5rem 2.5rem"
+          p="2.5rem 2.5rem"
           className="heroBackground"
-        />
+          textAlign="left"
+          position="relative"
+        >
+          <Heading size="lg" as="h2" lineHeight="1.6">
+            Whitelistin{" "}
+          </Heading>
+        </GridItem>
+        <GridItem
+          w="100%"
+          m="0 auto"
+          borderRadius="lg"
+          overflow="hidden"
+          alignItems="center"
+          p="2.5rem 2.5rem"
+          className="heroBackground"
+          textAlign="left"
+          position="relative"
+        >
+          <Heading size="lg" as="h2" lineHeight="1.6">
+            Whitelistin{" "}
+          </Heading>
+        </GridItem>
+        <GridItem
+          w="100%"
+          m="0 auto"
+          borderRadius="lg"
+          overflow="hidden"
+          alignItems="center"
+          p="2.5rem 2.5rem"
+          className="heroBackground"
+          textAlign="left"
+          position="relative"
+        >
+          <Heading size="lg" as="h2" lineHeight="1.6">
+            Whitelistin{" "}
+          </Heading>
+        </GridItem>
       </Grid>
     </Box>
   );
